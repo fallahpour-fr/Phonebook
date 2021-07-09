@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap');
+
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    outline-width: 0px;
+}
+
+*::before,
+*::after {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    outline-width: 0px;
+}
+
+:root{
+    --darkBlack:#292828;
+    --lightBlack:#3d3d3d;
+    --darkgray:#a0a0a0;
+    --red:#981a00;
+  }
+
+html {
+    overflow-x: hidden;
+    display: block;
+    font-family: 'Roboto', sans-serif;
+    letter-spacing: 1px;
+}
+
+body {
+    font-size: 1.5em;
+    margin: 0px;
+    padding: 0px;
+    word-wrap: break-word;
+    background-color: var(--darkBlack);
+    font-weight: 400;
+}
+
+.row {
+    max-width: 1320px;
+    margin: 0 auto;
+}
+
+
+/*...............................................phoneBook-container.................................................*/
+.phoneBook-container{
+    width: 90%;
+    margin: 0px 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 0.5em;
+    border: 3px solid var(--red);
+    color: var(--red);
+}
+
+.phoneBook-title{
+   padding: 1em;
+   border-bottom: 1px solid var(--red);
+   width: 90%;
+}
+
+.phoneBook-search{
+    display: flex;
+    padding: 1.5em 1em;
+    justify-content: space-between;
+    width: 90%;
+    font-size: 0.7em;
+    border-bottom: 1px solid var(--red) ;
+}
+
+.phoneBook-search__box--icone{
+    color: var(--red);
+    padding: 0.5em;
+    border: 1px solid var(--red);
+    background-color: var(--darkBlack);
+    cursor: pointer;
+}
+
+.phoneBook-search__box--input{
+    padding-right: 2.5em;
+}
+
+
+.phoneBook-info{
+    border: 1px solid var(--red);
+    margin: 10px;
+    padding: 0.5em;
+    border-radius: 0.5em;
+    width: 90%;
+    font-size: 0.9em;
+}
+
+.phoneBook-info__titles{
+    display: flex;
+    justify-content:space-between;
+    padding: 0.8em 0.4em;
+    border-bottom: 1px solid var(--red);
+    font-size: 0.9em;
+}
+
+.phoneBook-contactinfo{
+    border: 1px solid var(--red);
+    margin: 10px;
+    padding:1.5em 0.5em;
+    border-radius: 0.5em;
+    width: 90%;
+    font-size: 0.7em;
+    display: flex;
+    justify-content: space-between;
+}
+
+.input{
+    background-color:var(--lightBlack);
+    padding:0.5em 1.5em;
+    outline: none;
+    border: 1px solid var(--red);
+    border-radius: 0.5em;
+}
+
+.submit-btn{
+    background-color: var(--red);
+    outline: none;
+    padding: 0.5em;
+    border: none;
+    cursor: pointer;
+}
