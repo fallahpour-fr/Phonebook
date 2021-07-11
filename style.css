@@ -85,6 +85,15 @@ body {
     padding-right: 2.5em;
 }
 
+.phoneBook-search__numberOfContact--input{
+    width: 40%;
+}
+
+.clear-btn{
+    margin-left: 10px;
+}
+
+/*.................................................................................................*/
 
 .phoneBook-info {
     border: 1px solid var(--red);
@@ -128,7 +137,7 @@ body {
     border-radius: 0.5em;
 }
 
-.submit-btn {
+.btn-style {
     background-color: var(--red);
     outline: none;
     padding: 0.5em;
@@ -147,6 +156,7 @@ body {
     padding: 1em 0.5em;
     width: 25%;
     border-bottom: 1px solid var(--red);
+    color: var(--red);
 }
 
 .td-text {
@@ -154,7 +164,7 @@ body {
 }
 
 .td-trash {
-    text-align: end;
+    text-align:center;
     padding-right: 1em;
 }
 
@@ -165,4 +175,8 @@ body {
     background-color: var(--darkBlack);
     border: 1px solid var(--red);
     padding: 0.3em;
+    cursor: pointer;
 }
+
+
+

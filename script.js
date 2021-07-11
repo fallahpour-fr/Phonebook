@@ -6,6 +6,8 @@ const phoneBookForm = document.querySelector('.phoneBook-contactinfo');
 const nameInput = document.querySelector('.phoneBook-contactinfo--inputName');
 const emailInput = document.querySelector('.phoneBook-contactinfo--inputE-mail');
 const pohoneNumberInput = document.querySelector('.phoneBook-contactinfo--inputPhoneNumber');
+const numberOfContact = document.querySelector('.phoneBook-search__numberOfContac--input')
+let num = 0;
 
 submitBtn.addEventListener('click', addValue);
 
@@ -31,23 +33,23 @@ function addValue() {
         if (i == 0) {
             td.innerHTML = nameInput.value;
             td.classList.add('td-text');
-            nameInput.value=' '
+            nameInput.value = ' '
         }
         if (i == 1) {
             td.innerHTML = pohoneNumberInput.value;
             td.classList.add('td-text');
-            pohoneNumberInput.value=' '
+            pohoneNumberInput.value = ' '
         }
         if (i == 2) {
-            td.innerHTML =  emailInput.value;
+            td.innerHTML = emailInput.value;
             td.classList.add('td-text');
-            emailInput.value=' '
+            emailInput.value = ' '
         }
         if (i == 3) {
-            let btn=document.createElement('button');
+            let btn = document.createElement('button');
             btn.classList.add('options')
-            let icon=document.createElement('i');
-            icon.setAttribute('class' , 'far fa-trash-alt')
+            let icon = document.createElement('i');
+            icon.setAttribute('class', 'far fa-trash-alt')
             btn.appendChild(icon)
             td.appendChild(btn)
             td.classList.add('td-trash');
