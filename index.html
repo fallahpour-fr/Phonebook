@@ -5,6 +5,7 @@
     <link rel="stylesheet" type="text/css" href="./style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- <link href="https://caniuse.com/#feat=form-validation" rel="stylesheet" > -->
     <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
     <script src="https://kit.fontawesome.com/3657f037a5.js" crossorigin="anonymous"></script>
 </head>
@@ -19,7 +20,7 @@
             </div>
             <div class="phoneBook-search">
                 <div class="phoneBook-search__box">
-                    <label for="phoneBookLablesearch" class="phoneBook-search__box--lable"> search : 
+                    <label for="phoneBookLablesearch" class="phoneBook-search__box--lable"> search :
                         <input class="phoneBook-search__box--input input" type='text' id="phoneBookLablesearch">
                     </label>
                     <button class="phoneBook-search__box--icone"><i class="fas fa-search"></i></button>
@@ -28,7 +29,7 @@
 
                 <div class="phoneBook-search__numberOfContac">
                     <label for="phoneBookLablenumberOfcontac" class="phoneBook-search__numberOfContac--lable"> Number of
-                        contact : 
+                        contact :
                         <input id="phoneBookLablenumberOfcontac" type="text"
                             class="phoneBook-search__numberOfContac--input input">
                     </label>
@@ -41,23 +42,32 @@
                     <span class="phoneBook-info__title">E-mail</span>
                     <span class="phoneBook-info__title">Options</span>
                 </div>
-                <div class="phoneBook-info__container">
-
-                </div>
+                <table class="phoneBook-info__container">
+                    <!-- <tr class="tr">
+                        <td class="td td-name">hi</td>
+                        <td class="td td-phoneNumber">hi</td>
+                        <td class="td td-emaile">hi</td>
+                        <td class="td td-options"><button class="options"><i class="far fa-trash-alt"></i></button></td>
+                    </tr> -->
+                    
+                </table>
             </div>
-            <div class="phoneBook-contactinfo">
+            <form class="phoneBook-contactinfo">
                 <label for="Name" class="phoneBook-contactinfo--lable"> Name:
-                    <input id="name" type="text" class="phoneBook-contactinfo--input input">
+                    <input id="name" type="text" class="phoneBook-contactinfo--inputName input" required maxlength="80"
+                        required pattern="[a-z]{1,15}">
                 </label>
                 <label for="PhoneNumber" class="phoneBook-contactinfo--lable"> Phone number:
-                    <input id="PhoneNumber" type="text" class="phoneBook-contactinfo--input input"
-                        placeholder="xxx-xxxxxxxxx">
+                    <input id="PhoneNumber" type="text" class="phoneBook-contactinfo--inputPhoneNumber input"
+                        placeholder="xxx-xxxxxxxxx" min="11" required>
                 </label>
-                <label for="E-mail" class="phoneBook-contactinfo--lable"> Phone number:
-                    <input id="E-mail" type="email" class="phoneBook-contactinfo--input input">
+                <label for="E-mail" class="phoneBook-contactinfo--lable"> E-mail:
+                    <input id="E-mail" type="email" class="phoneBook-contactinfo--inputE-mail input"
+                        pattern=".+@globex\.com" size="30"
+                        title="Please provide only a Best Startup Ever corporate e-mail address" required>
                 </label>
-                <input type="submit" value="Add contact" class="submit-btn">
-            </div>
+                <input type="submit" value="Add contact" class="submit-btn" >
+            </form>
 
         </section>
     </div>

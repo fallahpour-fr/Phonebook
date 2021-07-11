@@ -16,12 +16,12 @@
     outline-width: 0px;
 }
 
-:root{
-    --darkBlack:#292828;
-    --lightBlack:#3d3d3d;
-    --darkgray:#a0a0a0;
-    --red:#981a00;
-  }
+:root {
+    --darkBlack: #292828;
+    --lightBlack: #3d3d3d;
+    --darkgray: #a0a0a0;
+    --red: #981a00;
+}
 
 html {
     overflow-x: hidden;
@@ -46,7 +46,7 @@ body {
 
 
 /*...............................................phoneBook-container.................................................*/
-.phoneBook-container{
+.phoneBook-container {
     width: 90%;
     margin: 0px 50px;
     display: flex;
@@ -58,22 +58,22 @@ body {
     color: var(--red);
 }
 
-.phoneBook-title{
-   padding: 1em;
-   border-bottom: 1px solid var(--red);
-   width: 90%;
+.phoneBook-title {
+    padding: 1em;
+    border-bottom: 1px solid var(--red);
+    width: 90%;
 }
 
-.phoneBook-search{
+.phoneBook-search {
     display: flex;
     padding: 1.5em 1em;
     justify-content: space-between;
     width: 90%;
     font-size: 0.7em;
-    border-bottom: 1px solid var(--red) ;
+    border-bottom: 1px solid var(--red);
 }
 
-.phoneBook-search__box--icone{
+.phoneBook-search__box--icone {
     color: var(--red);
     padding: 0.5em;
     border: 1px solid var(--red);
@@ -81,12 +81,12 @@ body {
     cursor: pointer;
 }
 
-.phoneBook-search__box--input{
+.phoneBook-search__box--input {
     padding-right: 2.5em;
 }
 
 
-.phoneBook-info{
+.phoneBook-info {
     border: 1px solid var(--red);
     margin: 10px;
     padding: 0.5em;
@@ -95,18 +95,24 @@ body {
     font-size: 0.9em;
 }
 
-.phoneBook-info__titles{
+.phoneBook-info__titles {
     display: flex;
-    justify-content:space-between;
+    width: 100%;
     padding: 0.8em 0.4em;
     border-bottom: 1px solid var(--red);
     font-size: 0.9em;
 }
 
-.phoneBook-contactinfo{
+.phoneBook-info__title {
+    text-align: left;
+    width: 25%;
+    padding-left: 0.5em;
+}
+
+.phoneBook-contactinfo {
     border: 1px solid var(--red);
     margin: 10px;
-    padding:1.5em 0.5em;
+    padding: 1.5em 0.5em;
     border-radius: 0.5em;
     width: 90%;
     font-size: 0.7em;
@@ -114,18 +120,49 @@ body {
     justify-content: space-between;
 }
 
-.input{
-    background-color:var(--lightBlack);
-    padding:0.5em 1.5em;
+.input {
+    background-color: var(--lightBlack);
+    padding: 0.5em 1.5em;
     outline: none;
     border: 1px solid var(--red);
     border-radius: 0.5em;
 }
 
-.submit-btn{
+.submit-btn {
     background-color: var(--red);
     outline: none;
     padding: 0.5em;
     border: none;
     cursor: pointer;
+}
+
+/*............................................................................................*/
+
+.phoneBook-info__container {
+    width: 100%;
+    margin-bottom: 40px;
+}
+
+.td {
+    padding: 1em 0.5em;
+    width: 25%;
+    border-bottom: 1px solid var(--red);
+}
+
+.td-text {
+    text-align: start;
+}
+
+.td-trash {
+    text-align: end;
+    padding-right: 1em;
+}
+
+.options{
+    /* padding: 0.5em; */
+    font-size: 1.3em;
+    color: var(--red);
+    background-color: var(--darkBlack);
+    border: 1px solid var(--red);
+    padding: 0.3em;
 }
