@@ -33,7 +33,7 @@
                         <input id="phoneBookLablenumberOfcontac" type="text"
                             class="phoneBook-search__numberOfContact--input input">
                     </label>
-                    <input type="submit" value="Clear data" class="clear-btn btn-style" >
+                    <input type="submit" value="Clear data" class="clear-btn btn-style">
                 </div>
             </div>
             <div class="phoneBook-info">
@@ -50,24 +50,32 @@
                         <td class="td td-emaile">hi</td>
                         <td class="td td-options"><button class="options"><i class="far fa-trash-alt"></i></button></td>
                     </tr> -->
-                    
+
                 </table>
             </div>
-            <form class="phoneBook-contactinfo">
-                <label for="Name" class="phoneBook-contactinfo--lable"> Name:
-                    <input id="name" type="text" class="phoneBook-contactinfo--inputName input" required maxlength="80"
-                        required pattern="[a-z]{1,15}">
-                </label>
-                <label for="PhoneNumber" class="phoneBook-contactinfo--lable"> Phone number:
-                    <input id="PhoneNumber" type="text" class="phoneBook-contactinfo--inputPhoneNumber input"
-                        placeholder="xxx-xxxxxxxxx" min="11" required>
-                </label>
-                <label for="E-mail" class="phoneBook-contactinfo--lable"> E-mail:
-                    <input id="E-mail" type="email" class="phoneBook-contactinfo--inputE-mail input"
-                        pattern=".+@globex\.com" size="30"
-                        title="Please provide only a Best Startup Ever corporate e-mail address" required>
-                </label>
-                <input type="submit" value="Add contact" class="submit-btn btn-style" >
+            <form class="phoneBook-contactinfo" >
+                <div class="form-control">
+                    <label for="Name" class="phoneBook-contactinfo--lable"> Full Name:
+                        <input id="name" type="text" class="phoneBook-contactinfo--inputName input"
+                            maxlength="100"  required>
+                    </label>
+                    <small class="phoneBook-contactinfo__error phoneBook-contactinfo__error--name"></small>
+                </div>
+                <div class="form-control">
+                    <label for="PhoneNumber" class="phoneBook-contactinfo--lable"> Phone number:
+                        <input id="PhoneNumber" type="text" class="phoneBook-contactinfo--inputPhoneNumber input"
+                            placeholder="xxxx-xxxxxxxxx" minlength="11" maxlength="11" pattern="[0-9]{11}" required>
+                    </label>
+                    <small class="phoneBook-contactinfo__error phoneBook-contactinfo__error--phonenumber"></small>
+                </div>
+                <div class="form-control form-control-Email">
+                    <label for="E-mail" class="phoneBook-contactinfo--lable"> E-mail:
+                        <input id="E-mail" type="email" class="phoneBook-contactinfo--inputE-mail input" required>
+                    </label>
+                    <small class="phoneBook-contactinfo__error phoneBook-contactinfo__error--email"></small>
+                </div>
+
+                <input type="submit" value="Add contact" class="submit-btn btn-style">
             </form>
 
         </section>

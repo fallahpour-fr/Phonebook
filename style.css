@@ -145,6 +145,23 @@ body {
     cursor: pointer;
 }
 
+.form-control{
+    display: flex;
+    flex-direction: column;  
+    position: relative;  
+}
+
+.phoneBook-contactinfo__error{
+    background-color: var(--red);
+    padding: 0.5em;
+    color: whitesmoke;
+    width: 70%;
+    position: absolute;
+    top: 30;
+    left: 70;
+    visibility:hidden;
+}
+
 /*............................................................................................*/
 
 .phoneBook-info__container {
@@ -178,5 +195,5 @@ body {
     cursor: pointer;
 }
 
-
+/*.........................................................*/
 
