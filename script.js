@@ -32,6 +32,7 @@ function checkValid() {
         addValue();
     }
     if (!isEmail(emailInputValue)) {
+        num = 0;
         setErrorFor(emailInput, 'email is not valid');
     } else {
         setSuccessFor(emailInputValue)
@@ -52,7 +53,7 @@ function isEmail(email) {
     return re.test(email);
 }
 
-function setSuccessFor(emaileValue) {
+function setSuccessFor() {
     const errMassageOfemaile = document.querySelector('.form-control-Email .phoneBook-contactinfo__error');
     errMassageOfemaile.style.visibility = 'hidden';
 }
@@ -91,14 +92,19 @@ function addValue() {
                 btn.appendChild(icon)
                 td.appendChild(btn)
                 td.classList.add('td-trash');
+                btn.addEventListener('click', clearData);
+
+                function clearData() {
+                    tr.classList.add('hidden')
+                    numberContact--;
+                    numberOfContact.value = numberContact;
+                }
             }
 
         }
         table.appendChild(tr);
-        // phoneBookForm.submit();
         num = 0;
         numberContact++;
-        console.log(numberContact)
         numberOfContact.value = numberContact
     }
 
