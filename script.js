@@ -10,9 +10,12 @@ const numberOfContact = document.querySelector('.phoneBook-search__numberOfConta
 const erroreName = document.querySelector('.phoneBook-contactinfo__error--name');
 const erroreEmail = document.querySelector('.phoneBook-contactinfo__error--email');
 const erroreMassage = document.querySelector('.phoneBook-contactinfo__error');
+const inputOfserch = document.querySelector('.phoneBook-search__box--input');
 let num = 0;
 let numberContact = 0;
+let tr, td, btn, icon;
 
+inputOfserch.addEventListener('keyup', serch);
 phoneBookForm.addEventListener('submit', (e) => {
     e.preventDefault();
     checkValid();
@@ -61,9 +64,9 @@ function setSuccessFor() {
 
 function addValue() {
     if (num === 3) {
-        let tr = document.createElement('tr');
+        tr = document.createElement('tr');
         for (let i = 0; i < 4; i++) {
-            let td = document.createElement('td');
+            td = document.createElement('td');
             tr.appendChild(td);
             td.classList.add('td');
             if (i == 1 || i == 2 || i == 3) {
@@ -85,9 +88,9 @@ function addValue() {
                 emailInput.value = ' '
             }
             if (i == 3) {
-                let btn = document.createElement('button');
+                btn = document.createElement('button');
                 btn.classList.add('options')
-                let icon = document.createElement('i');
+                icon = document.createElement('i');
                 icon.setAttribute('class', 'far fa-trash-alt')
                 btn.appendChild(icon)
                 td.appendChild(btn)
@@ -105,7 +108,88 @@ function addValue() {
         table.appendChild(tr);
         num = 0;
         numberContact++;
-        numberOfContact.value = numberContact
+        numberOfContact.value = numberContact;
+
+
+        // let tr=table.getElementsByTagName('tr');
+
+    }
+
+}
+
+function serch() {
+    let inputOfValue = inputOfserch.value;
+    let tdText, txtValue;
+    let trr = table.getElementsByTagName('tr')
+    // console.log(Number(inputOfValue))
+    // if (Number(inputOfValue)) {
+    //     // console.log('hi')
+    //     for (let i = 0; i < trr.length; i++) {
+    //         tdText = trr[i].getElementsByTagName('td')[1];
+    //         console.log(tdText)
+    //         if (tdText) {
+    //             txtValue = tdText.textContent || tdText.innerText;
+    //             // console.log(inputOfValue,txtValue.split('').indexOf(inputOfValue))
+    //             if (txtValue.indexOf(inputOfValue) > -1) {
+    //                 trr[i].style.display = '';
+    //                 // console.log('yes')
+    //             } else {
+    //                 trr[i].style.display = 'none'
+    //                 // console.log('no')
+    //             }
+    //         }
+    //     }
+    // } else {
+    //     let filter = inputOfValue.toUpperCase();
+    //     for (let i = 0; i < trr.length; i++) {
+    //         tdText = trr[i].getElementsByTagName('td')[0];
+    //         console.log(tdText)
+    //         if (typeof inputOfValue === 'string' && tdText) {
+    //             txtValue = tdText.textContent || tdText.innerText;
+    //             if (txtValue.toUpperCase().indexOf(filter) > -1) {
+    //                 trr[i].style.display = '';
+    //             } else {
+    //                 trr[i].style.display = 'none'
+    //             }
+    //         }
+    //     }
+    // }
+    if (Number(inputOfValue) === 0) {
+        for (let i = 0; i < trr.length; i++) {
+            trr[i].style.display = '';
+        }
+    }
+    else if (Number(inputOfValue) && Number(inputOfValue) !== 0) {
+        // console.log('hi')
+        for (let i = 0; i < trr.length; i++) {
+            tdText = trr[i].getElementsByTagName('td')[1];
+            console.log(tdText)
+            if (tdText) {
+                txtValue = tdText.textContent || tdText.innerText;
+                // console.log(inputOfValue,txtValue.split('').indexOf(inputOfValue))
+                if (txtValue.indexOf(inputOfValue) > -1) {
+                    trr[i].style.display = '';
+                    // console.log('yes')
+                } else {
+                    trr[i].style.display = 'none'
+                    // console.log('no')
+                }
+            }
+        }
+    } else {
+        let filter = inputOfValue.toUpperCase();
+        for (let i = 0; i < trr.length; i++) {
+            tdText = trr[i].getElementsByTagName('td')[0];
+            console.log(tdText)
+            if (typeof inputOfValue === 'string' && tdText) {
+                txtValue = tdText.textContent || tdText.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    trr[i].style.display = '';
+                } else {
+                    trr[i].style.display = 'none'
+                }
+            }
+        }
     }
 
 }
