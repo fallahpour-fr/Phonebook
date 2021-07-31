@@ -20,12 +20,14 @@ let tr, td, btn, icon;
 
 
 
-let saveArray = localStorage.getItem('saveArrayInLocal');
+let saveArray = localStorage.getItem(`saveArrayInLocal`);
 let saveNumberContact = localStorage.getItem('saveNumbContactInLocal');
+let saveObjContact = localStorage.getItem(`saveArrayInLocal${numberContact}`);
 
 if (saveArray && saveNumberContact) {
     arr = JSON.parse(saveArray);
     numberContact = JSON.parse(saveNumberContact);
+    obj = JSON.parse(saveObjContact);
     saveInLocalStrage();
     obj = {};
 } else {
@@ -93,6 +95,7 @@ function addValue() {
 
     if (num === 3) {
         tr = document.createElement('tr');
+        tr.setAttribute('id', `${numberContact}`)
         for (let i = 0; i < 4; i++) {
             td = document.createElement('td');
             tr.appendChild(td);
@@ -103,33 +106,43 @@ function addValue() {
             if (i == 0) {
                 td.innerHTML = obj.nameInputValue;
                 td.classList.add('td-text');
-                nameInput.value = ''
+                nameInput.value = '';
             }
             if (i == 1) {
                 td.innerHTML = obj.pohoneNumberInputValue;
                 td.classList.add('td-text');
-                pohoneNumberInput.value = ''
+                pohoneNumberInput.value = '';
             }
             if (i == 2) {
                 td.innerHTML = obj.emailInputValue;
                 td.classList.add('td-text');
-                emailInput.value = ''
+                emailInput.value = '';
             }
             if (i == 3) {
                 btn = document.createElement('button');
                 btn.classList.add('options')
+                btn.setAttribute('id', `${numberContact}`);
                 icon = document.createElement('i');
-                icon.setAttribute('class', 'far fa-trash-alt')
-                btn.appendChild(icon)
-                td.appendChild(btn)
+                icon.setAttribute('class', 'far fa-trash-alt');
+                icon.setAttribute('id', `${numberContact}`)
+                btn.appendChild(icon);
+                td.appendChild(btn);
                 td.classList.add('td-trash');
                 btn.addEventListener('click', clearData);
+                console.log(btn)
 
-                function clearData() {
+                function clearData(e) {
+                    localStorage.removeItem(`saveArrayInLocal${Number(e.target.id)+1}`)
                     tr.classList.add('hidden')
-                    numberContact--;
-                    numberOfContact.value = numberContact;
-                    // localStorage.removeItem()
+                    if (numberContact >= 1) {
+                        numberContact--;
+                        numberOfContact.value = numberContact;
+                    }else{
+                        e.preventDefault();
+                    }
+                    
+                    console.log(numberContact, Number(e.target.id), 'hi')
+
                 }
             }
 
@@ -139,7 +152,8 @@ function addValue() {
         numberContact++;
         numberOfContact.value = numberContact;
         arr.push(obj);
-        localStorage.setItem('saveArrayInLocal', JSON.stringify(arr));
+        localStorage.setItem(`saveArrayInLocal`, JSON.stringify(arr));
+        localStorage.setItem(`saveArrayInLocal${numberContact}`, JSON.stringify(obj));
         localStorage.setItem('saveNumbContactInLocal', JSON.stringify(numberContact));
         console.log(arr)
         obj = {}
@@ -157,19 +171,15 @@ function serch() {
             trr[i].style.display = '';
         }
     } else if (Number(inputOfValue) && Number(inputOfValue) !== 0) {
-        // console.log('hi')
         for (let i = 0; i < trr.length; i++) {
             tdText = trr[i].getElementsByTagName('td')[1];
             console.log(tdText)
             if (tdText) {
                 txtValue = tdText.textContent || tdText.innerText;
-                // console.log(inputOfValue,txtValue.split('').indexOf(inputOfValue))
                 if (txtValue.indexOf(inputOfValue) > -1) {
                     trr[i].style.display = '';
-                    // console.log('yes')
                 } else {
-                    trr[i].style.display = 'none'
-                    // console.log('no')
+                    trr[i].style.display = 'none';
                 }
             }
         }
@@ -206,21 +216,22 @@ function saveInLocalStrage() {
             if (i == 0) {
                 td.innerHTML = arr[j].nameInputValue;
                 td.classList.add('td-text');
-                nameInput.value = ' '
+                nameInput.value = ''
             }
             if (i == 1) {
                 td.innerHTML = arr[j].pohoneNumberInputValue;
                 td.classList.add('td-text');
-                pohoneNumberInput.value = ' '
+                pohoneNumberInput.value = '';
             }
             if (i == 2) {
                 td.innerHTML = arr[j].emailInputValue;
                 td.classList.add('td-text');
-                emailInput.value = ' '
+                emailInput.value = ''
             }
             if (i == 3) {
                 btn = document.createElement('button');
                 btn.classList.add('options')
+                btn.setAttribute('id', `${numberContact}`);
                 icon = document.createElement('i');
                 icon.setAttribute('class', 'far fa-trash-alt')
                 btn.appendChild(icon)
@@ -232,6 +243,7 @@ function saveInLocalStrage() {
                     tr.classList.add('hidden')
                     numberContact--;
                     numberOfContact.value = numberContact;
+                    // localStorage.removeItem(`saveArrayInLocal${id}`);
                 }
             }
 
@@ -244,9 +256,7 @@ function saveInLocalStrage() {
 
 
 function clearAllValueInLocal() {
-    console.log('hi')
     localStorage.clear();
-    console.log(trr)
 
     for (let i = 0; i < trr.length; i++) {
         trr[i].style.display = 'none';
