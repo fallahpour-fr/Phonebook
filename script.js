@@ -20,22 +20,24 @@ let tr, td, btn, icon;
 
 
 
-let saveArray = localStorage.getItem(`saveArrayInLocal`);
-let saveNumberContact = localStorage.getItem('saveNumbContactInLocal');
-let saveObjContact = localStorage.getItem(`saveArrayInLocal${numberContact}`);
+// let saveArray = localStorage.getItem(`saveArrayInLocal`);
+// let saveNumberContact = localStorage.getItem('saveNumbContactInLocal');
+// let saveObjContact = localStorage.getItem(`saveArrayInLocal${numberContact}`);
 
-if (saveArray && saveNumberContact) {
-    arr = JSON.parse(saveArray);
-    numberContact = JSON.parse(saveNumberContact);
-    obj = JSON.parse(saveObjContact);
-    saveInLocalStrage();
-    obj = {};
-} else {
-    numberContact = 0;
-    obj = {};
-    arr = [];
-}
-
+// if (saveObjContact && saveNumberContact) {
+//     // arr = JSON.parse(saveArray);
+//     numberContact = JSON.parse(saveNumberContact);
+//     obj = JSON.parse(saveObjContact);
+//     // saveInLocalStrage();
+//     obj = {};
+// } else {
+//     numberContact = 0;
+//     obj = {};
+//     arr = [];
+// }
+numberContact = 0;
+obj = {};
+arr = [];
 
 
 inputOfserch.addEventListener('keyup', serch);
@@ -53,7 +55,7 @@ function checkValid() {
     obj.nameInputValue = nameInputValue;
     obj.pohoneNumberInputValue = pohoneNumberInputValue;
     obj.emailInputValue = emailInputValue;
-
+    obj.id=Number(numberContact);
     if (nameInputValue !== ' ') {
         num++;
         addValue();
@@ -121,27 +123,45 @@ function addValue() {
             if (i == 3) {
                 btn = document.createElement('button');
                 btn.classList.add('options')
-                btn.setAttribute('id', `${numberContact}`);
                 icon = document.createElement('i');
                 icon.setAttribute('class', 'far fa-trash-alt');
-                icon.setAttribute('id', `${numberContact}`)
+                // icon.setAttribute('id', `${numberContact}`);
                 btn.appendChild(icon);
                 td.appendChild(btn);
                 td.classList.add('td-trash');
-                btn.addEventListener('click', clearData);
-                console.log(btn)
+                td.addEventListener('click', clearDataItem);
+                console.log(td);
 
-                function clearData(e) {
-                    localStorage.removeItem(`saveArrayInLocal${Number(e.target.id)+1}`)
-                    tr.classList.add('hidden')
-                    if (numberContact >= 1) {
-                        numberContact--;
-                        numberOfContact.value = numberContact;
-                    }else{
-                        e.preventDefault();
-                    }
-                    
-                    console.log(numberContact, Number(e.target.id), 'hi')
+                function clearDataItem() {
+                    // console.log(Number(e.target.id))
+                    // localStorage.removeItem(`saveArrayInLocal${Number(e.target.id)+1}`)
+                    // if (e.target === icon) {
+                    //     // tr.style.display = 'none'
+                    //     // document.getElementsByTagName("tr")[Number(e.target.id)].remove();
+                    //     console.log(icon)
+                    //     console.log(Number(e.target.id))
+                    // }else{
+                    //     console.log('hi')
+                    // }
+                    console.log('hi')
+                    tr.style.display = 'none'
+                    // console.log(e.target)
+                    // console.log(icon)
+                    // // tr.classList.add('hidden')
+                    // // if (e.target === modal) {
+                    // //     modal.style.display = "none";
+                    // // }
+                    // if (numberContact >= 1) {
+                    //     numberContact--;
+                    //     numberOfContact.value = numberContact;
+                    //     arr = arr.splice(Number(e.target.id), 1);
+                    //     localStorage.setItem('saveArrayInLocal', JSON.stringify(arr));
+                    //     localStorage.setItem('saveNumbContactInLocal', JSON.stringify(numberContact));
+                    // } else {
+                    //     e.preventDefault();
+                    // }
+
+                    // console.log(numberContact, Number(e.target.id), 'hi')
 
                 }
             }
@@ -152,9 +172,9 @@ function addValue() {
         numberContact++;
         numberOfContact.value = numberContact;
         arr.push(obj);
-        localStorage.setItem(`saveArrayInLocal`, JSON.stringify(arr));
-        localStorage.setItem(`saveArrayInLocal${numberContact}`, JSON.stringify(obj));
-        localStorage.setItem('saveNumbContactInLocal', JSON.stringify(numberContact));
+        // localStorage.setItem(`saveArrayInLocal`, JSON.stringify(arr));
+        // localStorage.setItem(`saveArrayInLocal${numberContact}`, JSON.stringify(obj));
+        // localStorage.setItem('saveNumbContactInLocal', JSON.stringify(numberContact));
         console.log(arr)
         obj = {}
     }
@@ -202,57 +222,56 @@ function serch() {
 }
 
 
-function saveInLocalStrage() {
-    for (let j = 0; j < numberContact; j++) {
+// function saveInLocalStrage() {
+//     for (let j = 0; j < numberContact; j++) {
 
-        tr = document.createElement('tr');
-        for (let i = 0; i < 4; i++) {
-            td = document.createElement('td');
-            tr.appendChild(td);
-            td.classList.add('td');
-            if (i == 1 || i == 2 || i == 3) {
-                td.style.borderLeft = '1px solid #981a00';
-            }
-            if (i == 0) {
-                td.innerHTML = arr[j].nameInputValue;
-                td.classList.add('td-text');
-                nameInput.value = ''
-            }
-            if (i == 1) {
-                td.innerHTML = arr[j].pohoneNumberInputValue;
-                td.classList.add('td-text');
-                pohoneNumberInput.value = '';
-            }
-            if (i == 2) {
-                td.innerHTML = arr[j].emailInputValue;
-                td.classList.add('td-text');
-                emailInput.value = ''
-            }
-            if (i == 3) {
-                btn = document.createElement('button');
-                btn.classList.add('options')
-                btn.setAttribute('id', `${numberContact}`);
-                icon = document.createElement('i');
-                icon.setAttribute('class', 'far fa-trash-alt')
-                btn.appendChild(icon)
-                td.appendChild(btn)
-                td.classList.add('td-trash');
-                btn.addEventListener('click', clearData);
+//         tr = document.createElement('tr');
+//         for (let i = 0; i < 4; i++) {
+//             td = document.createElement('td');
+//             tr.appendChild(td);
+//             td.classList.add('td');
+//             if (i == 1 || i == 2 || i == 3) {
+//                 td.style.borderLeft = '1px solid #981a00';
+//             }
+//             if (i == 0) {
+//                 td.innerHTML = arr[j].nameInputValue;
+//                 td.classList.add('td-text');
+//                 nameInput.value = ''
+//             }
+//             if (i == 1) {
+//                 td.innerHTML = arr[j].pohoneNumberInputValue;
+//                 td.classList.add('td-text');
+//                 pohoneNumberInput.value = '';
+//             }
+//             if (i == 2) {
+//                 td.innerHTML = arr[j].emailInputValue;
+//                 td.classList.add('td-text');
+//                 emailInput.value = ''
+//             }
+//             if (i == 3) {
+//                 btn = document.createElement('button');
+//                 btn.classList.add('options')
+//                 btn.setAttribute('id', `${j}`);
+//                 icon = document.createElement('i');
+//                 icon.setAttribute('class', 'far fa-trash-alt')
+//                 btn.appendChild(icon)
+//                 td.appendChild(btn)
+//                 td.classList.add('td-trash');
+//                 btn.addEventListener('click', clearData);
 
-                function clearData() {
-                    tr.classList.add('hidden')
-                    numberContact--;
-                    numberOfContact.value = numberContact;
-                    // localStorage.removeItem(`saveArrayInLocal${id}`);
-                }
-            }
+//                 function clearData() {
+//                     tr.classList.add('hidden')
+//                     numberContact--;
+//                     numberOfContact.value = numberContact;
+//                 }
+//             }
 
-        }
-        table.appendChild(tr);
-        numberOfContact.value = numberContact;
+//         }
+//         table.appendChild(tr);
+//         numberOfContact.value = numberContact;
 
-    }
-}
+//     }
+// }
 
 
 function clearAllValueInLocal() {
