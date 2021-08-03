@@ -183,11 +183,12 @@ body {
 .td-trash {
     text-align:center;
     padding-right: 1em;
+    cursor: pointer;
 }
 
 .options{
     /* padding: 0.5em; */
-    font-size: 1.3em;
+    font-size: 1.7em;
     color: var(--red);
     background-color: var(--darkBlack);
     border: 1px solid var(--red);

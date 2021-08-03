@@ -16,10 +16,11 @@ let trr = table.getElementsByTagName('tr');
 let numberContact;
 let num = 0;
 let obj, arr;
-let tr, td, btn, icon;
+let tr, td, btn, icon, lengthOfArray;
 
 
 
+<<<<<<< Updated upstream
 // let saveArray = localStorage.getItem(`saveArrayInLocal`);
 // let saveNumberContact = localStorage.getItem('saveNumbContactInLocal');
 // let saveObjContact = localStorage.getItem(`saveArrayInLocal${numberContact}`);
@@ -38,6 +39,25 @@ let tr, td, btn, icon;
 numberContact = 0;
 obj = {};
 arr = [];
+=======
+let saveArray = localStorage.getItem('saveArrayInLocal');
+let saveNumberContact = localStorage.getItem('saveNumbContactInLocal');
+
+
+
+if (saveArray && saveNumberContact) {
+    arr = JSON.parse(saveArray);
+    numberContact = JSON.parse(saveNumberContact);
+    lengthOfArray = arr.length;
+    saveInLocalStrage();
+    obj = {};
+} else {
+    numberContact = 0;
+    obj = {};
+    arr = [];
+}
+
+>>>>>>> Stashed changes
 
 
 inputOfserch.addEventListener('keyup', serch);
@@ -46,6 +66,10 @@ phoneBookForm.addEventListener('submit', (e) => {
     checkValid();
 })
 clearData.addEventListener('click', clearAllValueInLocal);
+table.addEventListener('click', clickIntable)
+
+
+
 
 
 function checkValid() {
@@ -55,7 +79,15 @@ function checkValid() {
     obj.nameInputValue = nameInputValue;
     obj.pohoneNumberInputValue = pohoneNumberInputValue;
     obj.emailInputValue = emailInputValue;
+<<<<<<< Updated upstream
     obj.id=Number(numberContact);
+=======
+    obj.id =arr.length;
+    obj.trash = false;
+    arr.push(obj);
+    localStorage.setItem('saveArrayInLocal', JSON.stringify(arr));
+
+>>>>>>> Stashed changes
     if (nameInputValue !== ' ') {
         num++;
         addValue();
@@ -72,6 +104,28 @@ function checkValid() {
         num++;
         addValue();
     }
+}
+
+
+function clickIntable(e) {
+    let element = e.target;
+    let elementJob = e.target.getAttribute('job');
+    console.log(element, elementJob);
+    if (elementJob == 'delete') {
+        removeItemInList(element)
+    }
+}
+
+function removeItemInList(element) {
+    element.parentNode.parentNode.parentNode.removeChild(element.parentNode.parentNode);
+    arr[element.id].trash = true;
+    if (numberContact >= 1) {
+        numberContact--;
+        numberOfContact.value = numberContact;
+    }
+    localStorage.setItem('saveNumbContactInLocal', JSON.stringify(numberContact));
+    localStorage.setItem('saveArrayInLocal', JSON.stringify(arr));
+    console.log(arr)
 }
 
 
@@ -95,7 +149,7 @@ function setSuccessFor() {
 
 function addValue() {
 
-    if (num === 3) {
+    if (num === 3 && obj.trash === false) {
         tr = document.createElement('tr');
         tr.setAttribute('id', `${numberContact}`)
         for (let i = 0; i < 4; i++) {
@@ -121,9 +175,8 @@ function addValue() {
                 emailInput.value = '';
             }
             if (i == 3) {
-                btn = document.createElement('button');
-                btn.classList.add('options')
                 icon = document.createElement('i');
+<<<<<<< Updated upstream
                 icon.setAttribute('class', 'far fa-trash-alt');
                 // icon.setAttribute('id', `${numberContact}`);
                 btn.appendChild(icon);
@@ -164,6 +217,14 @@ function addValue() {
                     // console.log(numberContact, Number(e.target.id), 'hi')
 
                 }
+=======
+                icon.classList.add('options');
+                icon.setAttribute('class', 'far fa-trash-alt');
+                icon.setAttribute('id', arr.length-1);
+                icon.setAttribute('job', "delete")
+                td.appendChild(icon)
+                td.classList.add('td-trash');
+>>>>>>> Stashed changes
             }
 
         }
@@ -171,15 +232,22 @@ function addValue() {
         num = 0;
         numberContact++;
         numberOfContact.value = numberContact;
+<<<<<<< Updated upstream
         arr.push(obj);
         // localStorage.setItem(`saveArrayInLocal`, JSON.stringify(arr));
         // localStorage.setItem(`saveArrayInLocal${numberContact}`, JSON.stringify(obj));
         // localStorage.setItem('saveNumbContactInLocal', JSON.stringify(numberContact));
         console.log(arr)
         obj = {}
+=======
+        localStorage.setItem('saveNumbContactInLocal', JSON.stringify(numberContact));
+        obj = {};
+>>>>>>> Stashed changes
     }
 
 }
+
+
 
 function serch() {
     let inputOfValue = inputOfserch.value;
@@ -199,7 +267,11 @@ function serch() {
                 if (txtValue.indexOf(inputOfValue) > -1) {
                     trr[i].style.display = '';
                 } else {
+<<<<<<< Updated upstream
                     trr[i].style.display = 'none';
+=======
+                    trr[i].style.display = 'none'
+>>>>>>> Stashed changes
                 }
             }
         }
@@ -222,6 +294,7 @@ function serch() {
 }
 
 
+<<<<<<< Updated upstream
 // function saveInLocalStrage() {
 //     for (let j = 0; j < numberContact; j++) {
 
@@ -272,6 +345,53 @@ function serch() {
 
 //     }
 // }
+=======
+function saveInLocalStrage() {
+    console.log(arr)
+    for (let j = 0; j < lengthOfArray; j++) {
+        console.log(arr)
+        if (arr[j].trash === false) {
+            tr = document.createElement('tr');
+            for (let i = 0; i < 4; i++) {
+                td = document.createElement('td');
+                tr.appendChild(td);
+                td.classList.add('td');
+                if (i == 1 || i == 2 || i == 3) {
+                    td.style.borderLeft = '1px solid #981a00';
+                }
+                if (i == 0) {
+                    td.innerHTML = arr[j].nameInputValue;
+                    td.classList.add('td-text');
+                    nameInput.value = ''
+                }
+                if (i == 1) {
+                    td.innerHTML = arr[j].pohoneNumberInputValue;
+                    td.classList.add('td-text');
+                    pohoneNumberInput.value = ''
+                }
+                if (i == 2) {
+                    td.innerHTML = arr[j].emailInputValue;
+                    td.classList.add('td-text');
+                    emailInput.value = ''
+                }
+                if (i == 3) {
+                    icon = document.createElement('i');
+                    icon.classList.add('options');
+                    icon.setAttribute('class', 'far fa-trash-alt');
+                    icon.setAttribute('id', j);
+                    icon.setAttribute('job', "delete")
+                    td.appendChild(icon)
+                    td.classList.add('td-trash');
+                }
+
+            }
+            table.appendChild(tr);
+            numberOfContact.value = numberContact;
+        }
+
+    }
+}
+>>>>>>> Stashed changes
 
 
 function clearAllValueInLocal() {
