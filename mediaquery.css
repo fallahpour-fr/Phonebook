@@ -1,0 +1,7 @@
+@media only screen and (min-width:1130px) and (max-width:1023px) {
+    .phoneBook-container {
+        font-size: 0.5em;
+        color: white;
+        border: 3px solid white;
+    }
+}

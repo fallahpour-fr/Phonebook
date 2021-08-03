@@ -3,16 +3,17 @@
 <head>
     <title> PHONEBOOK </title>
     <link rel="stylesheet" type="text/css" href="./style.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="./mediaquery.css">
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <meta charset="UTF-8">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
     <script src="https://kit.fontawesome.com/3657f037a5.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
-    <div class="row">
-        <section class="phoneBook-container">
-
+    <section class="phoneBook-container">
+        
             <div class="phoneBook-title">
                 <i class="far fa-address-book"></i>
                 <span>Phone Book</span>
@@ -31,7 +32,7 @@
                         <input id="phoneBookLablenumberOfcontac" type="text"
                             class="phoneBook-search__numberOfContact--input input" placeholder="0">
                     </label>
-                    <input type="submit" value="Clear data" class="clear-btn btn-style" >
+                    <input type="submit" value="Clear data" class="clear-btn btn-style">
                 </div>
             </div>
             <div class="phoneBook-info">
@@ -51,11 +52,11 @@
 
                 </table>
             </div>
-            <form class="phoneBook-contactinfo" >
+            <form class="phoneBook-contactinfo">
                 <div class="form-control">
                     <label for="Name" class="phoneBook-contactinfo--lable"> Full Name:
-                        <input id="name" type="text" class="phoneBook-contactinfo--inputName input"
-                            maxlength="100"  required>
+                        <input id="name" type="text" class="phoneBook-contactinfo--inputName input" maxlength="100"
+                            required>
                     </label>
                     <small class="phoneBook-contactinfo__error phoneBook-contactinfo__error--name"></small>
                 </div>
@@ -75,9 +76,9 @@
 
                 <input type="submit" value="Add contact" class="submit-btn btn-style">
             </form>
+       
+    </section>
 
-        </section>
-    </div>
 
 
     <script src="./script.js" type="text/javascript"></script>
