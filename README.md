@@ -9,3 +9,4 @@ Click [here](https://phonebookfr.netlify.app/) to go to url.
  * Delete.<br>
  * Search<br>
  * List<br>
+ * useing localStorage to save data <br>
