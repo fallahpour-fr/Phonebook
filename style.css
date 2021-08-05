@@ -145,6 +145,14 @@ body {
     cursor: pointer;
 }
 
+.phoneBook-contactinfo__btn-style{
+    background-color: var(--red);
+    outline: none;
+    padding: 0.5em;
+    border: none;
+    cursor: pointer;
+}
+
 .form-control {
     display: flex;
     flex-direction: column;
