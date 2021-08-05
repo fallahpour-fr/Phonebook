@@ -7,16 +7,6 @@
         padding: 0.5em 1em;
     }
 
-    /* .phoneBook-contactinfo__error {
-        background-color: var(--red);
-        padding: 0.5em;
-        color: whitesmoke;
-        width: 70%;
-        position: absolute;
-        top: 0;
-        left: 10;
-        visibility: hidden;
-    } */
 }
 
 @media only screen and (min-width:967px) and (max-width:1001px) {
@@ -30,18 +20,13 @@
 
     .btn-style {
         padding: 0.3em;
-        background-color: tomato;
     }
 
     .phoneBook-contactinfo__error {
-        background-color: var(--red);
         padding: 0.5em;
-        color: whitesmoke;
         width: 50%;
-        position: absolute;
         top: 35;
         left: 50;
-        visibility: hidden;
     }
 }
 
@@ -56,18 +41,14 @@
 
     .btn-style {
         padding: 0.3em;
-        background-color: tomato;
     }
 
     .phoneBook-contactinfo__error {
-        background-color: var(--red);
         padding: 0.5em;
-        color: whitesmoke;
         width: 70%;
         position: absolute;
         top: 45;
         left: 20;
-        visibility: hidden;
     }
 }
 
@@ -91,14 +72,11 @@
     }
 
     .phoneBook-contactinfo__error {
-        background-color: var(--red);
         padding: 0.5em;
-        color: whitesmoke;
         width: 30%;
         position: absolute;
         top: 30;
         left: 20;
-        visibility: hidden;
     }
 
     .phoneBook-contactinfo__btn-style {
@@ -107,8 +85,6 @@
     }
 
     .input {
-        padding: 0.5em 1.5em;
-        border-radius: 0.5em;
         margin-bottom: 30px;
     }
 }
@@ -121,7 +97,6 @@
 
     .phoneBook-search__numberOfContact--input {
         padding: 0.5em;
-        background-color: tomato;
     }
 
     #phoneBookLablenumberOfcontac {
@@ -137,14 +112,11 @@
     }
 
     .phoneBook-contactinfo__error {
-        background-color: var(--red);
         padding: 0.5em;
-        color: whitesmoke;
         width: 70%;
         position: absolute;
         top: 30;
         left: 20;
-        visibility: hidden;
     }
 
     .phoneBook-contactinfo__btn-style {
@@ -162,12 +134,6 @@
         font-size: 0.7em;
     }
 
-    .td {
-        padding: 1em 0.5em;
-        width: 25%;
-        border-bottom: 1px solid var(--red);
-        color: var(--red);
-    }
 }
 
 @media only screen and (min-width:320px) and (max-width:425px) {
@@ -178,7 +144,6 @@
 
     .phoneBook-search__numberOfContact--input {
         padding: 0.5em;
-        background-color: tomato;
     }
 
     #phoneBookLablenumberOfcontac {
@@ -194,14 +159,11 @@
     }
 
     .phoneBook-contactinfo__error {
-        background-color: var(--red);
         padding: 0.5em;
-        color: whitesmoke;
         width: 70%;
         position: absolute;
         top: 30;
         left: 20;
-        visibility: hidden;
     }
 
     .phoneBook-contactinfo__btn-style {
@@ -210,8 +172,6 @@
     }
 
     .input {
-        padding: 0.5em 1.5em;
-        border-radius: 0.5em;
         margin-bottom: 30px;
     }
 
@@ -223,10 +183,7 @@
         font-size: 0.7em;
     }
 
-    .td {
-        padding: 1em 0.5em;
-        width: 25%;
-        border-bottom: 1px solid var(--red);
-        color: var(--red);
+    .phoneBook-info__titles{
+        font-size: 0.7em;
     }
 }
