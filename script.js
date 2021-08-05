@@ -214,9 +214,7 @@ function serch() {
 
 
 function saveInLocalStrage() {
-    console.log(arr)
     for (let j = 0; j < lengthOfArray; j++) {
-        console.log(arr)
         if (arr[j].trash === false) {
             tr = document.createElement('tr');
             for (let i = 0; i < 4; i++) {
