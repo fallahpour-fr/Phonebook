@@ -58,7 +58,7 @@ function checkValid() {
     obj.nameInputValue = nameInputValue;
     obj.pohoneNumberInputValue = pohoneNumberInputValue;
     obj.emailInputValue = emailInputValue;
-    obj.id =arr.length;
+    obj.id = arr.length;
     obj.trash = false;
     arr.push(obj);
     localStorage.setItem('saveArrayInLocal', JSON.stringify(arr));
@@ -152,7 +152,7 @@ function addValue() {
                 icon = document.createElement('i');
                 icon.classList.add('options');
                 icon.setAttribute('class', 'far fa-trash-alt');
-                icon.setAttribute('id', arr.length-1);
+                icon.setAttribute('id', arr.length - 1);
                 icon.setAttribute('job', "delete")
                 td.appendChild(icon)
                 td.classList.add('td-trash');
@@ -178,6 +178,7 @@ function serch() {
 
     if (Number(inputOfValue) === 0) {
         for (let i = 0; i < trr.length; i++) {
+            console.log(trr[i])
             trr[i].style.display = '';
         }
     } else if (Number(inputOfValue) && Number(inputOfValue) !== 0) {
@@ -261,11 +262,12 @@ function saveInLocalStrage() {
 
 function clearAllValueInLocal() {
     localStorage.clear();
-
-    for (let i = 0; i < trr.length; i++) {
-        trr[i].style.display = 'none';
+    while (table.firstChild) {
+        table.removeChild(table.lastChild)
     }
-
     numberContact = '';
     numberOfContact.value = numberContact;
+    arr = []
+    localStorage.setItem('saveNumbContactInLocal', JSON.stringify(numberContact));
+    localStorage.setItem('saveArrayInLocal', JSON.stringify(arr));
 }
